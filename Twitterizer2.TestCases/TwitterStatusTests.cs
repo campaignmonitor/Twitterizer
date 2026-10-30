@@ -52,16 +52,16 @@ namespace Twitterizer2.TestCases
 
         [Category("Core")]
         [Test]
-        [ExpectedException(ExpectedException = typeof(ArgumentException))]
         public static void TestTokenValidation()
         {
             OAuthTokens fakeTokens = new OAuthTokens();
-            TwitterStatus.Update(fakeTokens, "This shouldn't work");
+            Assert.That(
+                () => TwitterStatus.Update(fakeTokens, "This shouldn't work"),
+                Throws.TypeOf<ArgumentException>());
         }
 
         [Category("Core")]
         [Test]
-        [ExpectedException(ExpectedException = typeof(ArgumentException))]
         public static void TestTokenValidation2()
         {
             OAuthTokens fakeTokens = new OAuthTokens
@@ -70,7 +70,9 @@ namespace Twitterizer2.TestCases
                     ConsumerSecret = "fake"
                 };
 
-            TwitterStatus.Update(fakeTokens, "This shouldn't work");
+            Assert.That(
+                () => TwitterStatus.Update(fakeTokens, "This shouldn't work"),
+                Throws.TypeOf<ArgumentException>());
         }
 
         [Test]

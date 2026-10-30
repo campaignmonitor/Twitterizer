@@ -16,7 +16,7 @@
 	Now built for the client profile.
 	</releaseNotes>
 	<dependencies>
-      <dependency id="Newtonsoft.Json" version="[4.5.5]" />
+      <dependency id="Newtonsoft.Json" version="[13.0.4]" />
     </dependencies>
     <copyright>Copyright 2012 Patrick "Ricky" Smith</copyright>
     <tags>twitter twitterizer</tags>
