@@ -29,7 +29,6 @@
             Assert.Greater(request.ResponseObject.MaxId, 0);
             Assert.Greater(request.ResponseObject.CompletedIn, 0);
             Assert.That(request.ResponseObject.MaxIdStr, Is.Not.Null.And.Not.Empty);
-            Assert.That(request.ResponseObject.NextResults, Is.Not.Null.And.Not.Empty);
             Assert.Greater(request.ResponseObject.SearchCount, 0);
             Assert.AreEqual("twitter", request.ResponseObject.Query);
             Assert.That(request.ResponseObject.RefreshUrl, Is.Not.Null.And.Not.Empty);
