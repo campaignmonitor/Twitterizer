@@ -20,7 +20,7 @@ namespace Twitterizer2.TestCases
             TwitterResponse<TwitterStatus> response = TwitterStatus.Show(tokens, 14772516348);
             TwitterStatus status = response.ResponseObject;
             Assert.IsNotNull(status);
-            Assert.IsNotNullOrEmpty(status.Text);
+            Assert.That(status.Text, Is.Not.Null.And.Not.Empty);
         }
 
         [Category("ReadOnly")]

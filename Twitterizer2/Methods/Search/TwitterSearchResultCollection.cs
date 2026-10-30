@@ -129,8 +129,9 @@ namespace Twitterizer
             result.SinceIdStr = value.SelectToken("search_metadata.since_id_str").Value<string>();
             result.Query = value.SelectToken("search_metadata.query").Value<string>();
             result.RefreshUrl = value.SelectToken("search_metadata.refresh_url").Value<string>();
-            // bugged Twitter API docs: https://dev.twitter.com/docs/api/1.1/get/search/tweets
-            //result.NextResults = value.SelectToken("search_metadata.next_results").Value<string>();
+            JToken nextResults = value.SelectToken("search_metadata.next_results");
+            if (nextResults != null)
+                result.NextResults = nextResults.Value<string>();
             result.SearchCount = value.SelectToken("search_metadata.count").Value<int>();
 
             return result;
